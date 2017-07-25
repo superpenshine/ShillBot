@@ -1,7 +1,7 @@
 
-import unittest
+'''import unittest'''
 
-from mothership.base import MothershipServer
+'''from mothership.base import MothershipServer'''
 
-class TestMothershipBasic(unittest.TestCase):
-    pass
+'''class TestMothershipBasic(unittest.TestCase):'''
+    '''pass'''
