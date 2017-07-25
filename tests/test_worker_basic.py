@@ -60,9 +60,8 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertEqual(len_to_crawl_after, len_to_crawl_before)
 
 
-
-
-
+aaa = TestWorkerBasic(unittest.TestCase)
+aaa.test_basic_worker_connection()
 
 
 
