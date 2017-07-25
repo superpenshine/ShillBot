@@ -3,7 +3,7 @@ machine:
     python:
       version: 3.6.0
   test:
-
+      python test_worker_basic.py
   override:
 
     - python -m unittest discover
