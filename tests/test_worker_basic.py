@@ -1,6 +1,8 @@
+
 import unittest
 import codecs
-import os, sys
+import os
+
 from workers.basic_worker import BasicUserParseWorker
 
 
@@ -57,6 +59,10 @@ class TestWorkerBasic(unittest.TestCase):
         len_to_crawl_after = len(worker.to_crawl)
 
         self.assertEqual(len_to_crawl_after, len_to_crawl_before)
+
+
+
+
 
 
 
