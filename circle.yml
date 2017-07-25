@@ -1,12 +1,7 @@
 machine:
-  pre:
-    python:
+  Python:
       version: 3.6.0
-  dependencies:
-    pre:
-      - pip install -r requirements.txt
+
   test:
-    - ECHO "here\n"
-    - python test_worker_basic.py
-  override:
-    - python -m unittest discover
+    override:
+      - python -m unittest discover
