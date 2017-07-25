@@ -2,7 +2,7 @@
 import unittest
 import codecs
 import os
-import ConnectionRefusedError
+import socket
 from workers.basic_worker import BasicUserParseWorker
 
 
