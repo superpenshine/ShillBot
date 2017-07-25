@@ -21,7 +21,7 @@ class TestWorkerBasic(unittest.TestCase):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
 
         # Can't connect to mother, so should raise ConnectionRefusedError, but should run everything else
-        self.assertRaises(ConnectionRefusedError(""), worker.run)
+        self.assertRaises(ConnectionRefusedError, worker.run)
 
     def test_worker_parsing(self):
         """
