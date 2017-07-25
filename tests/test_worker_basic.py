@@ -2,9 +2,11 @@
 import unittest
 import codecs
 import os
-import socket
+
 from workers.basic_worker import BasicUserParseWorker
 
+class ConnectionRefusedError(Exception):
+    pass
 
 class TestWorkerBasic(unittest.TestCase):
 
@@ -19,7 +21,7 @@ class TestWorkerBasic(unittest.TestCase):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
 
         # Can't connect to mother, so should raise ConnectionRefusedError, but should run everything else
-        self.assertRaises(ConnectionRefusedError, worker.run)
+        self.assertRaises(ConnectionRefusedError(""), worker.run)
 
     def test_worker_parsing(self):
         """
