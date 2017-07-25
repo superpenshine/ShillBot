@@ -1,8 +1,7 @@
 
 import unittest
 
-from ... import mothership
-
+From mothership.base import MothershipServer
 
 class TestMothershipBasic(unittest.TestCase):
     pass
