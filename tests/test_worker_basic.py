@@ -1,6 +1,6 @@
 import unittest
 import codecs
-import os
+import os, sys
 sys.path.insert(0, os.path.abspath(".."))
 from workers.basic_worker import BasicUserParseWorker
 
@@ -59,9 +59,6 @@ class TestWorkerBasic(unittest.TestCase):
 
         self.assertEqual(len_to_crawl_after, len_to_crawl_before)
 
-
-aaa = TestWorkerBasic(unittest.TestCase)
-aaa.test_basic_worker_connection()
 
 
 
