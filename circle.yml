@@ -1,0 +1,4 @@
+machine:
+  pre:
+    python:
+      version: 3.6.0
