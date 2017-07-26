@@ -50,18 +50,7 @@ class TestWorkerBasic(unittest.TestCase):
 
         self.assertEqual(len_to_crawl_after, len_to_crawl_before)
         
-    def test_worker_add_links_in_crawled(self):
-        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
-        worker.crawled = []
-
-        len_to_crawl_before = len(worker.to_crawl)
-        worker.add_links(["https://www.reddit.com/user/Chrikelnel"])
-        len_to_crawl_after = len(worker.to_crawl)
-
-        self.assertEqual(len_to_crawl_after, len_to_crawl_before)
-        
-        
-    def test_worker_add_links_to_crawled_2(self):
+    def test_worker_add_links_to_crawled_1(self):
         """
         Purpose: Test if cur_links is added correctly
         Expectation: added one urls by calling the add_links funcition, the add_links increased to 2
@@ -78,7 +67,7 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertEqual(worker.cur_links, 2)
 
 
-    def test_worker_add_links_to_crawled_3(self):
+    def test_worker_add_links_to_crawled_2(self):
         """
         Purpose: Test if cur_links will be added if the duplicated link is added accidently
         Expectation: added two urls, the add_links increased to 2, not 3 (filtered out when append to the to_crawl list)
