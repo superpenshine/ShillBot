@@ -3,6 +3,7 @@ import unittest
 import codecs
 import os
 
+from mothership.base import MothershipServer
 from workers.basic_worker import BasicUserParseWorker
 
 class TestWorkerBasic(unittest.TestCase):
@@ -58,6 +59,20 @@ class TestWorkerBasic(unittest.TestCase):
         len_to_crawl_after = len(worker.to_crawl)
 
         self.assertEqual(len_to_crawl_after, len_to_crawl_before)
+
+
+    def test_basic_mothership_listen(self):
+        """
+        Purpose: Test regular running of worker
+        Expectation: startup system, hit the reddit user and parse the data, fail to send to mothership (exception)
+
+        :precondition: Mothership server not running
+        :return:
+        """
+        mothership = MothershipServer()
+        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
+        # Can't connect to mother, so should raise ConnectionRefusedError, but should run everything else
+        self.assertRaises(Exception, worker.run)
 
 
 
