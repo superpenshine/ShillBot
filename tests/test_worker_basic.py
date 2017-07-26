@@ -61,12 +61,12 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertEqual(len_to_crawl_after, len_to_crawl_before)
 
 
-    def test_basic_mothership_listen(self):
+    def test_basic_connection_with_mothership_listen(self):
         """
-        Purpose: Test regular running of worker
-        Expectation: startup system, hit the reddit user and parse the data, fail to send to mothership (exception)
+        Purpose: Test regular listen function of server
+        Expectation: startup system, hit the reddit user and parse the data, send to mothership and success.
 
-        :precondition: Mothership server not running
+        :precondition: Mothership server running
         :return:
         """
         mothership = MothershipServer()
@@ -75,6 +75,13 @@ class TestWorkerBasic(unittest.TestCase):
         self.assertRaises(Exception, worker.run)
 
 
+    def test_worker_add_links_to_crawled(self):
+        mothership = MothershipServer()
+        worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
+        worker.add_links("https://www.google.ca/")
+        len_to_crawl_after = len(worker.to_crawl)
+
+        self.assertEqual(len_to_crawl_after, 2)
 
 
 
