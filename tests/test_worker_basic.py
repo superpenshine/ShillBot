@@ -80,7 +80,8 @@ class TestWorkerBasic(unittest.TestCase):
         worker = BasicUserParseWorker("https://www.reddit.com/user/Chrikelnel")
         worker.add_links("https://www.google.ca/")
         len_to_crawl_after = len(worker.to_crawl)
-
+        for links in worker.to_crawl:
+            print links
         self.assertEqual(len_to_crawl_after, 2)
 
 
